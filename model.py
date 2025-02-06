@@ -126,3 +126,17 @@ class GameModel:
             return True
 
         return False
+    
+    def get_resulting_strongest(self) -> int | None:
+        if not self.game_over_check():
+            return None
+        else:
+            temp_: list[int] = []
+            for row in self.grid:
+                for e in row:
+                    if type(e) == int:
+                        temp_.append(e)
+            
+            return max(temp_)
+            
+        
